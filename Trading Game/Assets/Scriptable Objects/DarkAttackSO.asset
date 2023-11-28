@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0342534b8bb2475c93172288e7d6b96, type: 3}
+  m_Name: DarkAttackSO
+  m_EditorClassIdentifier: 
+  cardName: Dark Attack
+  cardDescription: Attack enemy using all available dark cubes
+  manaCost: -1
+  card: {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
