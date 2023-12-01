@@ -7,7 +7,10 @@ public class PoisonEnemy : BaseEnemy
     [SerializeField] private SE_Poisoned poisonedEffect;
     [SerializeField] private int enemyDamage = 5;
     [SerializeField] private int healAmount = 10;
-
+    private void Start()
+    {
+        InitializeAttacks();
+    }
     private void PoisonAttack()
     {
         print("Poison");
@@ -27,12 +30,8 @@ public class PoisonEnemy : BaseEnemy
         print("Stab");
         Player.Instance.Damage(enemyDamage);
     }
-    private void SecondAttack()
-    {
-        //attack
-    }
     protected override void InitializeAttacks()
     {
-        attackFunctions = new AttackFunction[] { PoisonAttack, Heal, Stab, SecondAttack };
+        attackFunctions = new AttackFunction[] { PoisonAttack, Heal, Stab };
     }
 }

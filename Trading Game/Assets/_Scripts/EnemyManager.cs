@@ -6,16 +6,15 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
 
     [SerializeField] private BaseEnemy enemyVariant;
-    [SerializeField] private SE_Poisoned poisonedEffect;
     [SerializeField] private GameObject statusEffectParent;
     [SerializeField] private List<_SE_Base> statusEffects = new List<_SE_Base>();
     public static EnemyManager Instance {get; private set;}
-    [SerializeField] private int health = 100;
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private EnemyVisual enemyVisual;
+    private EnemyVisual enemyVisual;
     [SerializeField] private float enemyTurnTimer = 3;
     private bool enemyTurn = false;
     public event EventHandler OnEnemyTurnOver;
+    private int health;
+    private int maxHealth;
     private void Awake() {
         Instance = this;
     }
@@ -33,7 +32,11 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
     void Start()
     {
         GameManager.Instance.OnEnemyTurnStart += GameManager_OnEnemyTurnStart;
+        maxHealth = enemyVariant.GetMaxHealth();
+        health = maxHealth;
+        enemyVisual = enemyVariant.GetEnemyVisual();
     }
+
     public void Damage(int damageAmount){
         health -= damageAmount;
         if (health <= 0){
@@ -62,6 +65,7 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
     public EnemyVisual GetEnemyVisual(){
         return enemyVisual;
     }
+
     private void Update() {
         if (enemyTurn == true){
             enemyTurnTimer -= Time.deltaTime;
@@ -72,6 +76,8 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
             }
         }
     }
+
+
     private void ApplyStatusEffects(){
         List<_SE_Base> effectsToRemove = new List<_SE_Base>();
         for (int i = statusEffects.Count - 1; i >= 0; i--){
@@ -80,10 +86,7 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
     }
     public void AddStatusEffect(_SE_Base statusEffect){ statusEffects.Add(statusEffect); }
     public void RemoveStatusEffect(_SE_Base statusEffect) { statusEffects.Remove(statusEffect); }
-    public GameObject GetStatusEffectParent(){
-        return statusEffectParent;
-    }
-        public List<_SE_Base> GetStatusEffectList(){
-        return statusEffects;
-    }
+
+    public GameObject GetStatusEffectParent() { return statusEffectParent; }
+    public List<_SE_Base> GetStatusEffectList() { return statusEffects; }
 }

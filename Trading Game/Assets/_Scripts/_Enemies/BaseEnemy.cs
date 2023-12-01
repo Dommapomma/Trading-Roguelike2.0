@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour
 {
+    [SerializeField] private EnemyVisual enemyVisual;
+    [SerializeField] protected int maxHealth = -1;
     // Define a delegate type for the attack functions
     protected delegate void AttackFunction();
     // Create an array of attack functions
@@ -27,7 +29,6 @@ public class BaseEnemy : MonoBehaviour
     {
         attackFunctions = new AttackFunction[] { Attack1, Attack2 };
     }
-
     public void RandomAttack()
     {
         // Choose a random index from the array
@@ -35,4 +36,6 @@ public class BaseEnemy : MonoBehaviour
         // Invoke the selected attack function
         attackFunctions[randomIndex]();
     }
+    public int GetMaxHealth() { return maxHealth; }
+    public EnemyVisual GetEnemyVisual() { return enemyVisual; }
 }
