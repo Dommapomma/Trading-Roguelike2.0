@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseOrb : MonoBehaviour
 {
-    protected int damage = 10;
+    [SerializeField] protected int damage = 10;
     [SerializeField] protected OrbVisual orbVisual;
 
     public virtual void PlayOrb(){

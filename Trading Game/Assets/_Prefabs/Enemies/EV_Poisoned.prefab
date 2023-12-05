@@ -11,10 +11,22 @@ PrefabInstance:
     - target: {fileID: 460760113734513179, guid: 135c3678be8544e44b9708913380aa06, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -755430455, guid: f8c54ac48aabf45809f9265c751dd0a3, type: 3}
+      objectReference: {fileID: -256660340, guid: f8c54ac48aabf45809f9265c751dd0a3, type: 3}
     - target: {fileID: 1267666406821773327, guid: 135c3678be8544e44b9708913380aa06, type: 3}
       propertyPath: m_Name
       value: EV_Poisoned
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560460721816814601, guid: 135c3678be8544e44b9708913380aa06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560460721816814601, guid: 135c3678be8544e44b9708913380aa06, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560460721816814601, guid: 135c3678be8544e44b9708913380aa06, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8008719365121360142, guid: 135c3678be8544e44b9708913380aa06, type: 3}
       propertyPath: m_LocalPosition.x
