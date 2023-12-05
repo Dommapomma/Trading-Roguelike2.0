@@ -7,9 +7,6 @@ public class FireOrb : BaseOrb
 {
     [SerializeField] private SE_OnFire fireEffect;
     [SerializeField] private int effectLength;
-    private void Start() {
-        damage = 30;
-    }
     public override void PlayOrb(){
         print("fire attack!");
         Inventory.Instance.RemoveOrbFromInventory(this);

@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6ce71ce24cd4c7992c33e55901c9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   orbVisual: {fileID: 8949259273688184402}
   fireEffect: {fileID: 925919497195569299, guid: d671c1919d4094b1cbfb2595fbfb913a, type: 3}
   effectLength: 2

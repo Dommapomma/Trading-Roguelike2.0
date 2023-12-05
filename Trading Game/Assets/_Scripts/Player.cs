@@ -184,6 +184,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         health -= damageAmount;
         if (health <= 0){
             GameManager.Instance.GameOver();
+            print("You have died");
         }
     }
     public int GetPlayerHealth(){

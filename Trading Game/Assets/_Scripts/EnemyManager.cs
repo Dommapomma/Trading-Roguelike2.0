@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
-
-    [SerializeField] private BaseEnemy enemyVariant;
+    [SerializeField] private BaseEnemy defaultEnemyVariant;
+    private BaseEnemy enemyVariant;
     [SerializeField] private GameObject statusEffectParent;
     [SerializeField] private List<_SE_Base> statusEffects = new List<_SE_Base>();
     public static EnemyManager Instance {get; private set;}
@@ -32,15 +32,33 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
     void Start()
     {
         GameManager.Instance.OnEnemyTurnStart += GameManager_OnEnemyTurnStart;
-        maxHealth = enemyVariant.GetMaxHealth();
+        CreateEnemy();
         health = maxHealth;
-        enemyVisual = enemyVariant.GetEnemyVisual();
+        
+    }
+    private void CreateEnemy()
+    {
+        if (EnemyType.enemyType != null)
+        {
+            enemyVariant = Instantiate(EnemyType.enemyType, this.gameObject.transform);
+            enemyVisual = enemyVariant.GetEnemyVisual();
+            maxHealth = enemyVariant.GetMaxHealth();
+        }
+        else
+        {
+            EnemyType.enemyType = defaultEnemyVariant;
+
+            enemyVariant = Instantiate(EnemyType.enemyType, this.gameObject.transform);
+            enemyVisual = enemyVariant.GetEnemyVisual();
+            maxHealth = enemyVariant.GetMaxHealth();
+        }
     }
 
     public void Damage(int damageAmount){
         health -= damageAmount;
         if (health <= 0){
             GameManager.Instance.GameOver();
+            print("Enemy has died");
         } else {
             UpdateVisual();
         }
