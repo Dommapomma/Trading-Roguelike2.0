@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 573469590}
   - component: {fileID: 573469589}
   m_Layer: 0
-  m_Name: You Died
+  m_Name: GameOver Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1840,6 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartButton: {fileID: 1943941236}
   mainMenuButton: {fileID: 345759671}
+  gameOverText: {fileID: 573469589}
 --- !u!1 &1419124143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endTurnButton: {fileID: 1431047194}
-  gameOverVisual: {fileID: 1378372218}
+  gameOverVisual: {fileID: 1378372220}
   roundNumber: 0
   gameStartTimer: 3
   battleState: 0
