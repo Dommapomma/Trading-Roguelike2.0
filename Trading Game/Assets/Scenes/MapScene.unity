@@ -798,6 +798,8 @@ MonoBehaviour:
   confirmButton: {fileID: 1960627921}
   fireEnemy: {fileID: -6458041898612808903, guid: ad33e7fca3b15ea478e0f552fa5c7541, type: 3}
   poisonEnemy: {fileID: -8363179797236732068, guid: 913fa240b46b0024ea27a27d1e1c2174, type: 3}
+  seed: 0
+  rootNode: {fileID: 104883087943043487, guid: 9ecb394cfc45d0048a69ff74c2b7a36c, type: 3}
 --- !u!1 &1165969897
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapNode: {fileID: 104883087943043487}
+  generation: 0
+  childNodeList: []
