@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapNode : MonoBehaviour
 {
+    #region OldMapSystem
+    /*
     [SerializeField] private MapNode mapNode;
     [SerializeField] private int generation = 0;
     [SerializeField] private List<MapNode> childNodeList = new List<MapNode>();
@@ -27,5 +32,25 @@ public class MapNode : MonoBehaviour
     public void SetGeneration(int gen)
     {
         generation = gen;
+    }*/
+    #endregion
+
+    [SerializeField] MapNodeSO mapNodeSO;
+    [SerializeField] Button door;
+    [SerializeField] TextMeshProUGUI doorText;
+    private void Awake()
+    {
+        door.onClick.AddListener(() =>
+        {
+            if (mapNodeSO.enemy != null)
+            {
+                EnemyType.enemyType = mapNodeSO.enemy;
+            }
+            if (mapNodeSO.nodeName != null)
+            {
+                doorText.text = mapNodeSO.nodeName;
+            }
+            SceneLoader.Load(mapNodeSO.scene);
+        });
     }
 }

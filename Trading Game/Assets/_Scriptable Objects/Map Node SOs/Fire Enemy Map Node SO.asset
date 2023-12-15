@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e54da24c81bb8145a456f48cfb2241e, type: 3}
+  m_Name: Fire Enemy Map Node SO
+  m_EditorClassIdentifier: 
+  nodeName: Fire Enemy
+  scene: 1
+  enemy: {fileID: -6458041898612808903, guid: ad33e7fca3b15ea478e0f552fa5c7541, type: 3}

@@ -5,91 +5,83 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
+using static UnityEditor.PlayerSettings;
 
 public class MapMenuUI : MonoBehaviour
 {
-    [SerializeField] private Button poisonButton;
-    [SerializeField] private Button fireButton;
-    [SerializeField] private Button confirmButton;
-
-    [SerializeField] private BaseEnemy fireEnemy;
-    [SerializeField] private BaseEnemy poisonEnemy;
-    //[SerializeField] private Node rootNode;
-    //[SerializeField] public List<Node> nodes = new List<Node>();
-    //[SerializeField] private MapNode mapNode;
-
     public static MapMenuUI Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
-        poisonButton.onClick.AddListener(() =>
-        {
-            EnemyType.enemyType = poisonEnemy;
-        });
-        fireButton.onClick.AddListener(() =>
-        {
-            EnemyType.enemyType = fireEnemy;
-        });
-        confirmButton.onClick.AddListener(() =>
-        {
-            SceneLoader.Load(SceneLoader.Scene.GameScene);
-        });
     }
     private void Start()
     {
-        //rootNode = new Node(0, this.gameObject);
-        EnemyType.enemyType = poisonEnemy;
         GenerateMap();
     }
 
     [SerializeField] private int seed = 0;
-    [SerializeField] private MapNode rootNode;
+    [SerializeField] private GameObject mapNodesParent;
+    [SerializeField] private int doorWidth;
+    [Serializable] public class mapNodePrefab
+    {
+        public MapNode node;
+        public int probability = 1;
+              
+    }
+
+    [SerializeField] private List<mapNodePrefab> mapNodePrefabs = new List<mapNodePrefab>();
+    private List<MapNode> correctedMapNodePrefabs = new List<MapNode>();
     private void GenerateMap()
     {
         SetSeed();
-        Instantiate(rootNode, transform).Generate();
-        //nodes.Add(rootNode);
-        //rootNode.Generate(mapNode);
-
+        GenerateNodes();
     }
-    /*[Serializable]
-    public class Node
+    private void GenerateNodes()
     {
-        private int generation = 0;
-        [SerializeField] private List<Node> childNodeList = new List<Node>();
-        private bool hasGenerated = false;
-        private GameObject parentNode;
-
-        public Node(int c_generation, GameObject c_parentNode)
+        foreach (mapNodePrefab x in mapNodePrefabs)
         {
-            generation = c_generation;
-            parentNode = c_parentNode;
-        }
-        public void Generate(MapNode mapNode)
-        {
-            GameObject currentNode = Instantiate(mapNode, parentNode.gameObject.transform).gameObject;
-            if (generation <= 4 && hasGenerated == false)
+            for (int j = 0; j < x.probability; j++)
             {
-                int childNodes = UnityEngine.Random.Range(1, 3);
-                for (int i = 0; i < childNodes; i++)
-                {
-                    Node node = new Node(generation + 1, currentNode);
-                    childNodeList.Add(node);
-                    childNodeList[i].Generate(mapNode);
-                }
-                hasGenerated = true;
+                correctedMapNodePrefabs.Add(x.node);
             }
         }
-    }*/
+
+        int doors = UnityEngine.Random.Range(1, 4);
+        int pos = doorWidth / (doors + 1);
+        for (int i = 1; i <= doors; i++)
+        {
+            int nodeIndex = UnityEngine.Random.Range(0, mapNodePrefabs.Count);
+            MapNode node = Instantiate(correctedMapNodePrefabs[nodeIndex], mapNodesParent.transform);
+            Vector3 vector3 = new Vector3(mapNodesParent.transform.position.x + (pos * i + 1), mapNodesParent.transform.position.y);
+            node.transform.position = vector3;
+        }
+    }
 
     private void SetSeed()
     {
-        if (seed == 0)
+        /*if (seed != 0)
+        {
+            PlayerPrefs.SetInt("seed", seed);
+            print("setting seed to " + seed);
+        }
+        else if (seed < 0)
         {
             seed = UnityEngine.Random.Range(1000000, 9999999);
         }
-        UnityEngine.Random.InitState(seed);
+        else if (PlayerPrefs.HasKey("seed") && seed == 0)
+        {
+            seed = PlayerPrefs.GetInt("seed");
+        }*/
+        if (seed == 0)
+        {
+            UnityEngine.Random.InitState(UnityEngine.Random.Range(1000000, 9999999));
+        } else
+        {
+            UnityEngine.Random.InitState(seed);
+        }
+        
     }
 
 }
