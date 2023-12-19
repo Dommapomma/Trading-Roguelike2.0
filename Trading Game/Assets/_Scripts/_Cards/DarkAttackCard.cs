@@ -6,18 +6,6 @@ public class DarkAttackCard : BaseCard
 {
     [SerializeField] CardSO darkAttackSO;
     public override void PlayCard(){
-        /*List<BaseOrb> inventory = Inventory.Instance.GetInventoryList();
-        List<DarkOrb> darkOrbs = new List<DarkOrb>();
-        foreach (DarkOrb darkOrb in inventory){
-            darkOrbs.Add(darkOrb);
-        }
-        foreach (DarkOrb darkOrb in darkOrbs){
-            darkOrb.PlayOrb();
-        }
-        darkOrbs.Clear();
-        print(this + "I attacking with dark orbs");
-        Player.Instance.ChangeManaBy(cardSO.manaCost);*/
-
         List<BaseOrb> inventory = Inventory.Instance.GetInventoryList();
         List<BaseOrb> baseOrbs = new List<BaseOrb>();
         foreach (BaseOrb baseOrb in inventory){

@@ -26,6 +26,7 @@ public class BaseCard : MonoBehaviour
     
     protected void Start() {
         button.onClick.AddListener(TryPlayCard);
+        Hide();
         SetUpCard();
     }
 

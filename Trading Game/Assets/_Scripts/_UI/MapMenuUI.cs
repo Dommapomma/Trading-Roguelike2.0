@@ -21,7 +21,6 @@ public class MapMenuUI : MonoBehaviour
         GenerateMap();
     }
 
-    [SerializeField] private int seed = 0;
     [SerializeField] private GameObject mapNodesParent;
     [SerializeField] private int doorWidth;
     [Serializable] public class mapNodePrefab
@@ -35,7 +34,6 @@ public class MapMenuUI : MonoBehaviour
     private List<MapNode> correctedMapNodePrefabs = new List<MapNode>();
     private void GenerateMap()
     {
-        SetSeed();
         GenerateNodes();
     }
     private void GenerateNodes()
@@ -58,30 +56,4 @@ public class MapMenuUI : MonoBehaviour
             node.transform.position = vector3;
         }
     }
-
-    private void SetSeed()
-    {
-        /*if (seed != 0)
-        {
-            PlayerPrefs.SetInt("seed", seed);
-            print("setting seed to " + seed);
-        }
-        else if (seed < 0)
-        {
-            seed = UnityEngine.Random.Range(1000000, 9999999);
-        }
-        else if (PlayerPrefs.HasKey("seed") && seed == 0)
-        {
-            seed = PlayerPrefs.GetInt("seed");
-        }*/
-        if (seed == 0)
-        {
-            UnityEngine.Random.InitState(UnityEngine.Random.Range(1000000, 9999999));
-        } else
-        {
-            UnityEngine.Random.InitState(seed);
-        }
-        
-    }
-
 }

@@ -51,7 +51,8 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         locations.Add(discard);
 
         //Gains 10 cards from the list of possible cards to the deck. Only for demo purposes
-        GainCards(10);
+        //GainCards(10);
+        LoadCards();
         
         health = maxHealth;
     }
@@ -67,16 +68,18 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         playerVisual.UpdateVisual();
     }
 
+    private void LoadCards()
+    {
+        foreach (BaseCard card in PlayerSave.savedStartingCards) {
+            deck.Add(Instantiate(card, deckParent.gameObject.transform));
+        }
+    }
+
     #region debug stuff
     // Gain Cards, receives an integer and instantiates that many cards randomly from the list of possible cards. Automatically parents them to the deck.
     private void GainCards(int cardsToGain) {
         for (int i = 0; i < cardsToGain; i++) {
             deck.Add(Instantiate(startingCards[UnityEngine.Random.Range(0, startingCards.Count)], deckParent.gameObject.transform));
-        }
-        int deckLength = deck.Count;
-        for (int x = 0; x < deckLength; x++) {
-            deck[x].Hide();
-            UpdateCards();
         }
     }
         //For demo purposes, shows hand in the console along with index number

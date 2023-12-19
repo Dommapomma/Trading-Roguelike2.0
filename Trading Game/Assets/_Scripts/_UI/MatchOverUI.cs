@@ -13,6 +13,7 @@ public class MatchOverUI : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.SetInt("PlayerHealth", Player.Instance.GetPlayerHealth());
         restartButton.onClick.AddListener(() =>
         {
             SceneLoader.Load(SceneLoader.Scene.MapScene);
