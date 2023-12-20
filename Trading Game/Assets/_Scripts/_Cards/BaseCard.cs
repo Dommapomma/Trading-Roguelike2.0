@@ -23,11 +23,14 @@ public class BaseCard : MonoBehaviour
     protected int index;
     [SerializeField]
     private List<BaseCard> location;
-    
-    protected void Start() {
+
+    private void Awake()
+    {
+        SetUpCard();   
+    }
+    private void Start() {
         button.onClick.AddListener(TryPlayCard);
         Hide();
-        SetUpCard();
     }
 
     public virtual void SetUpCard(){
@@ -54,6 +57,7 @@ public class BaseCard : MonoBehaviour
     }
     //get card name. Not overriden by child class.
     public string GetCardName() {
+        print(cardSO == null);
         return cardSO.cardName;
     }
     public string GetCardDescription() {

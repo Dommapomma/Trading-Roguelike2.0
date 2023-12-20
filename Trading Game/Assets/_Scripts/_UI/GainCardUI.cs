@@ -1,12 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR;
-using static MapMenuUI;
 
 public class GainCardUI : MonoBehaviour
 {
@@ -34,24 +30,26 @@ public class GainCardUI : MonoBehaviour
         cardOptions.Add(new CardOption(card1Button, possibleCards[UnityEngine.Random.Range(0, possibleCards.Count)]));
         cardOptions.Add(new CardOption(card2Button, possibleCards[UnityEngine.Random.Range(0, possibleCards.Count)]));
         cardOptions.Add(new CardOption(card3Button, possibleCards[UnityEngine.Random.Range(0, possibleCards.Count)]));
-
-
     }
     private void Start()
     {
         foreach (CardOption cardOption in cardOptions)
         {
-
+            BaseCard card = Instantiate(cardOption.card, this.transform);
+            
             if (cardOption.button.GetComponentInChildren<TextMeshProUGUI>().text == null)
             {
                 print("null");
             } else
             {
                 print("not null");
-                BaseCard card = Instantiate(cardOption.card);
-                string name = card.GetCardName();
+                if (card != null)
+                {
+                    print(card.GetCardName());
+                }
+                string cardName = card.GetCardName();
                 card.Hide();
-                cardOption.button.GetComponentInChildren<TextMeshProUGUI>().text = name;
+                cardOption.button.GetComponentInChildren<TextMeshProUGUI>().text = cardName;
             }
 
             cardOption.button.onClick.AddListener(() =>
