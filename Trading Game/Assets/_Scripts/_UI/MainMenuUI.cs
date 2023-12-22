@@ -8,12 +8,12 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
-    [SerializeField] private List<BaseCard> setStartingDeck = new List<BaseCard>();
+    
 
 
     private void Awake()
     {
-        SetStartingDeck();
+        
         playButton.onClick.AddListener(() =>
         {
             InitializeSeed(); 
@@ -38,11 +38,5 @@ public class MainMenuUI : MonoBehaviour
         Random.InitState(seed);
     }
 
-    private void SetStartingDeck()
-    {
-        foreach (BaseCard card in setStartingDeck)
-        {
-            PlayerSave.savedStartingCards.Add(card);
-        }
-    }
+
 }

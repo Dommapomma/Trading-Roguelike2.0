@@ -33,9 +33,9 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     private int maxHandSize = 5;
     //The mana amount and maximum mana amount. Spend mana to play cards
     [SerializeField] private int mana;
-    [SerializeField] private int maxMana = 5;
+    [SerializeField] private int maxMana;
     [SerializeField] private int health;
-    [SerializeField] private int maxHealth = 75;
+    [SerializeField] private int maxHealth;
 
     #endregion variables
 

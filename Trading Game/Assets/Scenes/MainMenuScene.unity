@@ -719,17 +719,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 1973278131}
   quitButton: {fileID: 1909615376}
-  setStartingDeck:
-  - {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
-  - {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
-  - {fileID: 1010025012352842989, guid: 25cc2345237ee6e49bbbdcd87cbfd118, type: 3}
-  - {fileID: 1010025012352842989, guid: 25cc2345237ee6e49bbbdcd87cbfd118, type: 3}
-  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
-  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
-  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
-  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
-  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
-  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
 --- !u!1 &1473709821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1168,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695052921}
   m_CullTransparentMesh: 1
+--- !u!1 &1716729572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1716729574}
+  - component: {fileID: 1716729573}
+  m_Layer: 0
+  m_Name: Start Condition Setter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1716729573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716729572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cc41c7669f3ed488f47f4df368ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStartingDeck:
+  - {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
+  - {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
+  - {fileID: 1010025012352842989, guid: 25cc2345237ee6e49bbbdcd87cbfd118, type: 3}
+  - {fileID: 1010025012352842989, guid: 25cc2345237ee6e49bbbdcd87cbfd118, type: 3}
+  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
+  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
+  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
+  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
+  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
+  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
+  maxHealth: 80
+--- !u!4 &1716729574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716729572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1715.1627, y: 485.4877, z: 9.766846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754231106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,3 +1823,4 @@ SceneRoots:
   - {fileID: 214965489}
   - {fileID: 1098457271}
   - {fileID: 7439740568282253481}
+  - {fileID: 1716729574}
