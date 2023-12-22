@@ -79,6 +79,8 @@ public class GameManager : MonoBehaviour
         if (Player.Instance.GetPlayerHealth() > 0)
         {
             gameOverVisual.SetGameOverText("You have defeated the Enemy!");
+            PlayerSave.health = Player.Instance.GetPlayerHealth();
+            PlayerSave.maxHealth = Player.Instance.GetMaxPlayerHealth();
         } else
         {
             gameOverVisual.SetGameOverText("You Died :(");

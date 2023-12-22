@@ -27,7 +27,6 @@ public class MapMenuUI : MonoBehaviour
     {
         public MapNode node;
         public int probability = 1;
-              
     }
 
     [SerializeField] private List<mapNodePrefab> mapNodePrefabs = new List<mapNodePrefab>();
@@ -50,7 +49,7 @@ public class MapMenuUI : MonoBehaviour
         int pos = doorWidth / (doors + 1);
         for (int i = 1; i <= doors; i++)
         {
-            int nodeIndex = UnityEngine.Random.Range(0, mapNodePrefabs.Count);
+            int nodeIndex = UnityEngine.Random.Range(0, correctedMapNodePrefabs.Count);
             MapNode node = Instantiate(correctedMapNodePrefabs[nodeIndex], mapNodesParent.transform);
             Vector3 vector3 = new Vector3(mapNodesParent.transform.position.x + (pos * i + 1), mapNodesParent.transform.position.y);
             node.transform.position = vector3;

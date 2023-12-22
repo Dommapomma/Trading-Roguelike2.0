@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static MapMenuUI;
 
 public class GainCardUI : MonoBehaviour
 {
-    [SerializeField] private List<BaseCard> possibleCards = new List<BaseCard>();
+    [SerializeField] private List<cardOptionPrefab> possibleCards = new List<cardOptionPrefab>();
+    private List<BaseCard> correctedPossibleCards = new List<BaseCard>();
     [SerializeField] private List<CardOption> cardOptions = new List<CardOption>();
 
     [SerializeField] private Button card1Button;
     [SerializeField] private Button card2Button;
     [SerializeField] private Button card3Button;
 
+
+    [Serializable]
+    public class cardOptionPrefab
+    {
+        public BaseCard card;
+        public int probability = 1;
+    }
     [Serializable]
     public class CardOption
     {
@@ -27,9 +36,16 @@ public class GainCardUI : MonoBehaviour
     }
     private void Awake()
     {
-        cardOptions.Add(new CardOption(card1Button, possibleCards[UnityEngine.Random.Range(0, possibleCards.Count)]));
-        cardOptions.Add(new CardOption(card2Button, possibleCards[UnityEngine.Random.Range(0, possibleCards.Count)]));
-        cardOptions.Add(new CardOption(card3Button, possibleCards[UnityEngine.Random.Range(0, possibleCards.Count)]));
+        foreach (cardOptionPrefab x in possibleCards)
+        {
+            for (int j = 0; j < x.probability; j++)
+            {
+                correctedPossibleCards.Add(x.card);
+            }
+        }
+        cardOptions.Add(new CardOption(card1Button, correctedPossibleCards[UnityEngine.Random.Range(0, correctedPossibleCards.Count)]));
+        cardOptions.Add(new CardOption(card2Button, correctedPossibleCards[UnityEngine.Random.Range(0, correctedPossibleCards.Count)]));
+        cardOptions.Add(new CardOption(card3Button, correctedPossibleCards[UnityEngine.Random.Range(0, correctedPossibleCards.Count)]));
     }
     private void Start()
     {
@@ -37,26 +53,11 @@ public class GainCardUI : MonoBehaviour
         {
             BaseCard card = Instantiate(cardOption.card, this.transform);
             
-            if (cardOption.button.GetComponentInChildren<TextMeshProUGUI>().text == null)
-            {
-                print("null");
-            } else
-            {
-                print("not null");
-                if (card != null)
-                {
-                    print(card.GetCardName());
-                }
-                string cardName = card.GetCardName();
-                card.Hide();
-                cardOption.button.GetComponentInChildren<TextMeshProUGUI>().text = cardName;
-            }
-
+            cardOption.button.GetComponentInChildren<TextMeshProUGUI>().text = card.GetCardName(); ;
             cardOption.button.onClick.AddListener(() =>
             {
-                print("adding");
                 PlayerSave.savedStartingCards.Add(cardOption.card);
-                //SceneLoader.Load(SceneLoader.Scene.MapScene);
+                SceneLoader.Load(SceneLoader.Scene.MapScene);
             });
         }
     }

@@ -54,7 +54,8 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         //GainCards(10);
         LoadCards();
         
-        health = maxHealth;
+        health = PlayerSave.health;
+        maxHealth = PlayerSave.maxHealth;
     }
 
     private void GameManager_OnPlayerTurnStart(object sender, EventArgs e)
@@ -188,6 +189,14 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         if (health <= 0){
             GameManager.Instance.GameOver();
             print("You have died");
+        }
+    }
+    public void Heal(int healAmount)
+    {
+        health += healAmount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
         }
     }
     public int GetPlayerHealth(){

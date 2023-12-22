@@ -11,7 +11,8 @@ public static class SceneLoader
         MainMenuScene,
         GameScene,
         LoadingScene,
-        MapScene
+        MapScene,
+        GainCardScene
     }
     public static void Load(Scene targetScene)
     {

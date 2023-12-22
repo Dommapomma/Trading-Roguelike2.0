@@ -57,7 +57,6 @@ public class BaseCard : MonoBehaviour
     }
     //get card name. Not overriden by child class.
     public string GetCardName() {
-        print(cardSO == null);
         return cardSO.cardName;
     }
     public string GetCardDescription() {
