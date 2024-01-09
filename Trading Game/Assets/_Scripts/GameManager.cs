@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Button endTurnButton;
-    [SerializeField] private GameObject gameOverVisual;
+    [SerializeField] private MatchOverUI gameOverVisual;
     //Only manages round numbers and changing rounds for now. Sends off event when new round happens.
     public static GameManager Instance;
     public event EventHandler OnPlayerTurnOver;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start() {
         endTurnButton.onClick.AddListener(EndPlayerTurn);
         EnemyManager.Instance.OnEnemyTurnOver += EnemyManager_OnEnemyTurnOver;
-        gameOverVisual.SetActive(false);
+        gameOverVisual.gameObject.SetActive(false);
     }
 
     private void Update() {
@@ -75,7 +75,16 @@ public class GameManager : MonoBehaviour
     public void GameOver(){
         Debug.Log("The Game is Over");
         battleState = BattleState.GameOver;
-        gameOverVisual.SetActive(true);
+        gameOverVisual.gameObject.SetActive(true);
+        if (Player.Instance.GetPlayerHealth() > 0)
+        {
+            gameOverVisual.SetGameOverText("You have defeated the Enemy!");
+            PlayerSave.health = Player.Instance.GetPlayerHealth();
+            PlayerSave.maxHealth = Player.Instance.GetMaxPlayerHealth();
+        } else
+        {
+            gameOverVisual.SetGameOverText("You Died :(");
+        }
         OnPlayerTurnOver?.Invoke(this, EventArgs.Empty);
     }
 }

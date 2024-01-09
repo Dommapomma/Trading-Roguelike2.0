@@ -23,10 +23,14 @@ public class BaseCard : MonoBehaviour
     protected int index;
     [SerializeField]
     private List<BaseCard> location;
-    
-    protected void Start() {
+
+    private void Awake()
+    {
+        SetUpCard();   
+    }
+    private void Start() {
         button.onClick.AddListener(TryPlayCard);
-        SetUpCard();
+        Hide();
     }
 
     public virtual void SetUpCard(){

@@ -33,9 +33,9 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     private int maxHandSize = 5;
     //The mana amount and maximum mana amount. Spend mana to play cards
     [SerializeField] private int mana;
-    [SerializeField] private int maxMana = 5;
+    [SerializeField] private int maxMana;
     [SerializeField] private int health;
-    [SerializeField] private int maxHealth = 75;
+    [SerializeField] private int maxHealth;
 
     #endregion variables
 
@@ -51,9 +51,11 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         locations.Add(discard);
 
         //Gains 10 cards from the list of possible cards to the deck. Only for demo purposes
-        GainCards(10);
+        //GainCards(10);
+        LoadCards();
         
-        health = maxHealth;
+        health = PlayerSave.health;
+        maxHealth = PlayerSave.maxHealth;
     }
 
     private void GameManager_OnPlayerTurnStart(object sender, EventArgs e)
@@ -67,16 +69,18 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         playerVisual.UpdateVisual();
     }
 
+    private void LoadCards()
+    {
+        foreach (BaseCard card in PlayerSave.savedStartingCards) {
+            deck.Add(Instantiate(card, deckParent.gameObject.transform));
+        }
+    }
+
     #region debug stuff
     // Gain Cards, receives an integer and instantiates that many cards randomly from the list of possible cards. Automatically parents them to the deck.
     private void GainCards(int cardsToGain) {
         for (int i = 0; i < cardsToGain; i++) {
             deck.Add(Instantiate(startingCards[UnityEngine.Random.Range(0, startingCards.Count)], deckParent.gameObject.transform));
-        }
-        int deckLength = deck.Count;
-        for (int x = 0; x < deckLength; x++) {
-            deck[x].Hide();
-            UpdateCards();
         }
     }
         //For demo purposes, shows hand in the console along with index number
@@ -185,6 +189,14 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         if (health <= 0){
             GameManager.Instance.GameOver();
             print("You have died");
+        }
+    }
+    public void Heal(int healAmount)
+    {
+        health += healAmount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
         }
     }
     public int GetPlayerHealth(){
