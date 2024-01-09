@@ -12,7 +12,8 @@ public static class SceneLoader
         GameScene,
         LoadingScene,
         MapScene,
-        GainCardScene
+        GainCardScene,
+        GainHealthScene
     }
     public static void Load(Scene targetScene)
     {

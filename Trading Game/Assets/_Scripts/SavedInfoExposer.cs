@@ -28,4 +28,8 @@ public class SavedInfoExposer : MonoBehaviour
             getInfo();
         }
     }
+    private void RemoveUnusedVariableWarning()
+    {
+        IMPORTANT += "";
+    }
 }

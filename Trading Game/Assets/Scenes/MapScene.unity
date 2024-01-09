@@ -431,7 +431,9 @@ MonoBehaviour:
   - node: {fileID: 4226157163497910122, guid: d2a4e2131f2ba224e8fc36b5d4cc4402, type: 3}
     probability: 5
   - node: {fileID: 4479137687480105727, guid: d1086a037b29aef4a99d0f26d797ed5d, type: 3}
-    probability: 1
+    probability: 5
+  - node: {fileID: 3378498023910255854, guid: 44d91c41c9c27864e9c8d832e65a6512, type: 3}
+    probability: 20
 --- !u!1 &1300009739
 GameObject:
   m_ObjectHideFlags: 0
