@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2637197692370887914, guid: 8a718c235667f4f5890c91e60aedb088, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 820
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2637197692370887914, guid: 8a718c235667f4f5890c91e60aedb088, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a92d7f8627ef4bbe99e7c5508c3fc84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   orbVisual: {fileID: 3896170358713658844}
 --- !u!1 &8948319983564178418 stripped
 GameObject:

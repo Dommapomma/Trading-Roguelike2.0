@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
         UpdateInventoryVisual();
     }
 
-    //Used by cards to make new cubes of various types.
+    //Used by cards to make new orbs of various types.
     public void AddOrb(BaseOrb orb){
         inventory.Add(Instantiate(orb, this.gameObject.transform));
     }

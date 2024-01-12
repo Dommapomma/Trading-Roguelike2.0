@@ -9,20 +9,18 @@ using UnityEngine.UI;
 public class BaseCard : MonoBehaviour
 {
     //Other card types inherit from this
-    //just testing out polymorphism
     //could maybe be replaced by an interface, or maybe just add an interface in addition to this
 
     //All cards get their name and cost from their scriptable object. Each has their own script derived from this one as well
 
 
-    protected CardSO cardSO; //never actually assigned
+    protected CardSO cardSO; // assigned by child
     [SerializeField] protected CardVisual visual;
     [SerializeField] protected Button button;
 
-    [SerializeField]
-    protected int index;
-    [SerializeField]
-    private List<BaseCard> location;
+    [SerializeField] protected int index;
+    [SerializeField] private List<BaseCard> location;
+
 
     private void Awake()
     {
@@ -35,6 +33,11 @@ public class BaseCard : MonoBehaviour
 
     public virtual void SetUpCard(){
 
+    }
+    public virtual bool IsPlayable()
+    {
+        //contains conditions other than mana amount
+        return true;
     }
     public void SetIndex(int i) {
         index = i;

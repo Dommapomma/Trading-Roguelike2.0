@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 351945490562616659, guid: 8a718c235667f4f5890c91e60aedb088, type: 3}
       propertyPath: m_Name
-      value: Base Orb
+      value: Water Orb
       objectReference: {fileID: 0}
     - target: {fileID: 2637197692370887914, guid: 8a718c235667f4f5890c91e60aedb088, type: 3}
       propertyPath: m_Pivot.x
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2637197692370887914, guid: 8a718c235667f4f5890c91e60aedb088, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 820
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2637197692370887914, guid: 8a718c235667f4f5890c91e60aedb088, type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -24,7 +24,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     //The possible starting cards, the game picks 10 random ones from this list of possibilities
     [SerializeField] private List<BaseCard> startingCards = new List<BaseCard>();
 
-    //Parent gameobject of NRG cubes
+    //Parent gameobject of NRG orbs
     [SerializeField] private GameObject inventory;
 
     [SerializeField] private int handWidth = 1000;
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     public void PlayCard(int index = 0) {
         print("playing card number " + index);
         BaseCard activeCard = hand[index];
-        if (mana + activeCard.GetManaCost() >= 0) {
+        if (mana + activeCard.GetManaCost() >= 0 && activeCard.IsPlayable()) {
             print("playing card");
             activeCard.PlayCard();
             playerVisual.UpdateVisual();
@@ -219,5 +219,6 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     public List<_SE_Base> GetStatusEffectList(){
         return statusEffects;
     }
+
     #endregion
 }
