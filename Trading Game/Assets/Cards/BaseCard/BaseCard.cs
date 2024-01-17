@@ -71,4 +71,15 @@ public class BaseCard : MonoBehaviour
     public void Hide() {
         visual.gameObject.SetActive(false);
     }
+
+    #region Card Types
+    public virtual bool IFinisher { get; private set; } = false;
+    public virtual bool ISummoner { get; private set; } = false;
+    public virtual bool ITrader { get; private set; } = false;
+    public virtual bool IExhaustable { get; private set; } = false;
+    public virtual bool IIntuitive { get; private set; } = false;
+    public virtual bool IPersistant { get; private set; } = false;
+    public virtual bool IConsumable { get; private set; } = false;
+    #endregion Card Types
+
 }

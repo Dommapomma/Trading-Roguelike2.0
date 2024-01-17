@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
       propertyPath: m_LocalPosition.z
@@ -101,7 +101,12 @@ MonoBehaviour:
   visual: {fileID: 7214549234029283051}
   button: {fileID: 4430697483264764725}
   index: 0
-  location: []
+  location:
+  - {fileID: 7605843913661959427}
+  - {fileID: 7605843913661959427}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   LesserHealCardSO: {fileID: 11400000, guid: 9775b0b019a3f3842901898d2478fa01, type: 2}
   healAmount: 15
 --- !u!114 &4430697483264764725 stripped

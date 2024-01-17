@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LesserHealCard : BaseCard
 {
+    public override bool IConsumable { get { return true; } }
+    public override bool IIntuitive { get { return true; } }
     [SerializeField] CardSO LesserHealCardSO;
     [SerializeField] int healAmount;
     public override void PlayCard()

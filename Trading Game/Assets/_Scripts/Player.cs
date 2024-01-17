@@ -30,7 +30,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     [SerializeField] private int handWidth = 1000;
 
     //The maximum hand size. When a round begins you draw this many into your hand from your deck
-    private int maxHandSize = 5;
+    private int drawHandSize = 5;
     //The mana amount and maximum mana amount. Spend mana to play cards
     [SerializeField] private int mana;
     [SerializeField] private int maxMana;
@@ -50,8 +50,6 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         locations.Add(deck);
         locations.Add(discard);
 
-        //Gains 10 cards from the list of possible cards to the deck. Only for demo purposes
-        //GainCards(10);
         LoadCards();
         
         health = PlayerSave.health;
@@ -63,7 +61,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         print("PlayerTurnStarting");
         ApplyStatusEffects();
         //Draws maxHandSize amount of cards
-        DrawCards(maxHandSize);
+        DrawCards(drawHandSize);
         //regain mana
         mana = maxMana;
         playerVisual.UpdateVisual();
@@ -71,33 +69,50 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
 
     private void LoadCards()
     {
+        List<BaseCard> intuitives = new List<BaseCard>();
+        List<BaseCard> regulars = new List<BaseCard>();
         foreach (BaseCard card in PlayerSave.savedStartingCards) {
-            deck.Add(Instantiate(card, deckParent.gameObject.transform));
+            if (card.IIntuitive)
+            {
+                intuitives.Add(Instantiate(card));
+                continue;
+            }
+            regulars.Add(Instantiate(card));
+        }
+        while (intuitives.Count > 0) //add intuitive cards first at random
+        {
+            BaseCard removingCard = intuitives[UnityEngine.Random.Range(0, intuitives.Count)];
+            intuitives.Remove(removingCard);
+            deck.Add(removingCard);
+            removingCard.transform.parent = deckParent.transform;
+        }
+        while (regulars.Count > 0)// add regular, non-intuitive cards next at random
+        {
+            BaseCard removingCard = regulars[UnityEngine.Random.Range(0, regulars.Count)];
+            regulars.Remove(removingCard);
+            deck.Add(removingCard);
+            removingCard.transform.parent = deckParent.transform;
         }
     }
 
     #region debug stuff
-    // Gain Cards, receives an integer and instantiates that many cards randomly from the list of possible cards. Automatically parents them to the deck.
-    private void GainCards(int cardsToGain) {
-        for (int i = 0; i < cardsToGain; i++) {
-            deck.Add(Instantiate(startingCards[UnityEngine.Random.Range(0, startingCards.Count)], deckParent.gameObject.transform));
-        }
-    }
-        //For demo purposes, shows hand in the console along with index number
-    private void ShowHand() {
-        for (int x = 0; x < hand.Count; x++) {
-            print(x + ". " + hand[x].GetCardName());
-        }
-        UpdateHandVisual();
-    }
+            //nothing here
     #endregion
     //When a new round starts, we listen to the event
     private void GameManager_OnPlayerTurnOver(object sender, EventArgs e) {
         print("Player Turn Over");
-        //remove any old cards from your hand, eventually add a check for persistent cards
+        //remove any old cards from your hand
         int handLength = hand.Count;
+        int persistants = 0;
         for (int x = 0; x < handLength; x ++) {
-            Discard(hand[0]);
+            if (hand[0].IPersistant == false)
+            {
+                Discard(hand[0 + persistants]);
+            }
+            else
+            {
+                persistants += 1;   
+            }
         }
         playerVisual.UpdateVisual();
     }
@@ -110,7 +125,8 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
             print("playing card");
             activeCard.PlayCard();
             playerVisual.UpdateVisual();
-            Discard(activeCard);
+            DealWithCard(activeCard);//sorts consummable, exhaustable, and regular cards
+
             print("discard");
         } else {
             print("Not Enough Mana");
@@ -128,13 +144,18 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         UpdateHandVisual();
         card.transform.parent = discardParent.transform;//don't forget the transform of the actual game object
     }
-
     //Add a check if no cards are in both the discard and deck (all in hand)
     //Draw cards from the deck into your hand. Receives an integer for how many cards to draw. If the deck contains no more cards, shuffle the discard into the deck.
     public void DrawCards(int numberDrawn) {
         for (int i = 0;  i < numberDrawn; i ++) {
             if (deck.Count == 0) {
                 ShuffleCards();
+                if (deck.Count == 0)
+                {
+                    print("no more cards left");
+                    UpdateHandVisual();
+                    return;
+                }
             }
             BaseCard card = deck[0];
             deck.Remove(card);
@@ -172,6 +193,35 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
             hand[i].Show();
         }
     }
+    private void DealWithCard(BaseCard card)
+    {
+        if (card.IConsumable)
+        {
+            Type cardType = card.GetType();
+            foreach (BaseCard saveCard in PlayerSave.savedStartingCards)
+            {
+                if (saveCard.GetType().Equals(cardType))
+                {
+                    PlayerSave.savedStartingCards.Remove(saveCard);
+                    break;
+                }
+            }
+            PlayerSave.savedStartingCards.Remove(card);
+            hand.Remove(card);
+            UpdateCards();
+            UpdateHandVisual();
+            Destroy(card.gameObject);
+        } else if (card.IExhaustable) {
+            hand.Remove(card);
+            UpdateCards();
+            UpdateHandVisual();
+            Destroy(card.gameObject);
+        } else
+        {
+            Discard(card);
+        }
+    }
+
 
     #region card functions
     //To be used by the cards, gains mana, takes in integer mana amount

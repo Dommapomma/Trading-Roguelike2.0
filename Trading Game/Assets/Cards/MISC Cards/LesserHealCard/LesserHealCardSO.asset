@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Lesser Heal Card
   cardDescription: Heal 15 hp
-  manaCost: 2
+  manaCost: -2
   card: {fileID: 7605843913661959427, guid: bf72f00945448e54b809f6c2151e7218, type: 3}

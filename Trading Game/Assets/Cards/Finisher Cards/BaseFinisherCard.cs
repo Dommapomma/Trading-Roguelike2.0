@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class BaseFinisherCard : BaseCard
 {
-    [SerializeField] CardSO BaseFinisherCardSO;
+    [SerializeField] CardSO FinisherCardSO;
     [SerializeField] List<BaseOrb> requirements;
+
+    public override bool IPersistant {  get { return true; } }
+
     public override void PlayCard()
     {
         List<BaseOrb> inventory = Inventory.Instance.GetInventoryList();
@@ -18,16 +21,18 @@ public class BaseFinisherCard : BaseCard
             {
                 if (orbToRemove.GetType() == targetType)
                 {
-                    orb.PlayOrb();
+                    orbToRemove.PlayOrb();
                     break;
                 }
             }
-
         }
         Player.Instance.ChangeManaBy(cardSO.manaCost);
-
     }
-    public override bool IsPlayable()
+    public virtual void FinisherBonus()
+    {
+        //extra bonus for playing finisher
+    }
+    public override bool IsPlayable()//used by player script
     {
         List<BaseOrb> inventory = new List<BaseOrb>(Inventory.Instance.GetInventoryList());
         foreach (BaseOrb orb in requirements)
@@ -57,6 +62,6 @@ public class BaseFinisherCard : BaseCard
     }
     public override void SetUpCard()
     {
-        cardSO = BaseFinisherCardSO;
+        cardSO = FinisherCardSO;
     }
 }
