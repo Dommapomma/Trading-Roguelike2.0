@@ -23,4 +23,9 @@ public class EnemyVisual : MonoBehaviour
     public void AttackAnimation(){
         enemySprite.gameObject.transform.DOMoveY(gameObject.transform.position.y - 400, 1).SetEase(Ease.InSine).SetLoops(2, LoopType.Yoyo);
     }
+    public void MissAnimation()
+    {
+        //miss
+        Debug.Log("I missed");
+    }
 }

@@ -471,17 +471,13 @@ MonoBehaviour:
   handParent: {fileID: 1170105490}
   deckParent: {fileID: 803582312}
   discardParent: {fileID: 1085498715}
-  startingCards:
-  - {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
-  - {fileID: 1010025012352842989, guid: 25cc2345237ee6e49bbbdcd87cbfd118, type: 3}
-  - {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
-  - {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
   inventory: {fileID: 845292726}
   handWidth: 1400
   mana: 0
   maxMana: 5
   health: 0
   maxHealth: 75
+  missChances: 
 --- !u!1 &369929478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1615,7 @@ MonoBehaviour:
   defaultEnemyVariant: {fileID: -8363179797236732068, guid: 913fa240b46b0024ea27a27d1e1c2174, type: 3}
   statusEffectParent: {fileID: 207934979}
   statusEffects: []
+  missChances: 
   enemyTurnTimer: 3
 --- !u!1 &1279832937
 GameObject:
@@ -2859,7 +2856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4549843485617602446, guid: f21b164583dfb3148be9502c366aef47, type: 3}
       propertyPath: setStartingDeck.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4549843485617602446, guid: f21b164583dfb3148be9502c366aef47, type: 3}
       propertyPath: setStartingDeck.Array.data[0]
@@ -2892,15 +2889,15 @@ PrefabInstance:
     - target: {fileID: 4549843485617602446, guid: f21b164583dfb3148be9502c366aef47, type: 3}
       propertyPath: setStartingDeck.Array.data[7]
       value: 
-      objectReference: {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
+      objectReference: {fileID: 2672673613777392082, guid: 2d6547663d6015442bc9930b52c74214, type: 3}
     - target: {fileID: 4549843485617602446, guid: f21b164583dfb3148be9502c366aef47, type: 3}
       propertyPath: setStartingDeck.Array.data[8]
       value: 
-      objectReference: {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
+      objectReference: {fileID: 2672673613777392082, guid: 2d6547663d6015442bc9930b52c74214, type: 3}
     - target: {fileID: 4549843485617602446, guid: f21b164583dfb3148be9502c366aef47, type: 3}
       propertyPath: setStartingDeck.Array.data[9]
       value: 
-      objectReference: {fileID: 7767868045498492094, guid: fd4a2d5c9155bce48b323a1d4bacdc0e, type: 3}
+      objectReference: {fileID: 2672673613777392082, guid: 2d6547663d6015442bc9930b52c74214, type: 3}
     - target: {fileID: 4549843485617602446, guid: f21b164583dfb3148be9502c366aef47, type: 3}
       propertyPath: setStartingDeck.Array.data[10]
       value: 

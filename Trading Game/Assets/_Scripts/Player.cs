@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IDamageable, IStatusEffectable
+public class Player : MonoBehaviour, IDamageable, IStatusEffectable, IMissable
 {
     #region variables
     [SerializeField] private GameObject statusEffectParent;
@@ -21,9 +21,6 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     [SerializeField] private GameObject deckParent;
     [SerializeField] private GameObject discardParent;
 
-    //The possible starting cards, the game picks 10 random ones from this list of possibilities
-    [SerializeField] private List<BaseCard> startingCards = new List<BaseCard>();
-
     //Parent gameobject of NRG orbs
     [SerializeField] private GameObject inventory;
 
@@ -36,6 +33,9 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     [SerializeField] private int maxMana;
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
+
+    [SerializeField] private List<int> missChances = new List<int>();
+    public List<int> MissChances { get { return missChances; } }
 
     #endregion variables
 
@@ -122,9 +122,16 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
         print("playing card number " + index);
         BaseCard activeCard = hand[index];
         if (mana + activeCard.GetManaCost() >= 0 && activeCard.IsPlayable()) {
-            print("playing card");
-            activeCard.PlayCard();
-            playerVisual.UpdateVisual();
+            if (!MissedAction())
+            {
+                print("playing card");
+                activeCard.PlayCard();
+                playerVisual.UpdateVisual();
+            }
+            else
+            {
+                Debug.Log("Oh no! The action failed!");
+            }
             DealWithCard(activeCard);//sorts consummable, exhaustable, and regular cards
 
             print("discard");
@@ -269,6 +276,36 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable
     public List<_SE_Base> GetStatusEffectList(){
         return statusEffects;
     }
-
+    public void ChangeDrawHandSize(int change)
+    {
+        drawHandSize += change;
+    }
+    public bool MissedAction()
+    {
+        foreach (int missChance in missChances)
+        {
+            //for each miss change, calculate if it misses
+            if (UnityEngine.Random.Range(0, 101) < missChance)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void AddMissChance(int chance)
+    {
+        missChances.Add(chance);
+    }
+    public void RemoveMissChance(int chance)
+    {
+        if (missChances.Contains(chance))
+        {
+            missChances.Remove(chance);
+        }
+        else
+        {
+            Debug.LogError("Error, trying to remove miss chance that does not exist");
+        }
+    }
     #endregion
 }

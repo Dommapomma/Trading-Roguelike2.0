@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
+public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable, IMissable {
+
     [SerializeField] private BaseEnemy defaultEnemyVariant;
     private BaseEnemy enemyVariant;
     [SerializeField] private GameObject statusEffectParent;
     [SerializeField] private List<_SE_Base> statusEffects = new List<_SE_Base>();
     public static EnemyManager Instance {get; private set;}
+    [SerializeField] private List<int> missChances = new List<int>();
+    public List<int> MissChances { get { return missChances; } }
+
     private EnemyVisual enemyVisual;
     [SerializeField] private float enemyTurnTimer = 3;
     private bool enemyTurn = false;
@@ -22,8 +26,16 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
     {
         enemyTurn = true;
         ApplyStatusEffects();
-        enemyVisual.AttackAnimation();
-        Attack();
+        if (!MissedAction())
+        {
+            enemyVisual.AttackAnimation();
+            Attack();
+        }
+        else
+        {
+            enemyVisual.MissAnimation();
+        }
+        
     }
 
     private void Attack(){
@@ -107,4 +119,31 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable {
 
     public GameObject GetStatusEffectParent() { return statusEffectParent; }
     public List<_SE_Base> GetStatusEffectList() { return statusEffects; }
+
+    public bool MissedAction()
+    {
+        foreach (int missChance in missChances)
+        {
+            //for each miss change, calculate if it misses
+            if (UnityEngine.Random.Range(0, 101) < missChance){
+                return true;
+            }
+        }
+        return false;
+    }
+    public void AddMissChance(int chance)
+    {
+        missChances.Add(chance);
+    }
+    public void RemoveMissChance(int chance)
+    {
+        if (missChances.Contains(chance))
+        {
+            missChances.Remove(chance);
+        }
+        else
+        {
+            Debug.LogError("Error, trying to remove miss chance that does not exist");
+        }
+    }
 }

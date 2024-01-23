@@ -22,8 +22,13 @@ public class _SE_Base : MonoBehaviour
     protected void IsDone(){
         if (turns <= 0){
             if (owner.TryGetComponent(out IStatusEffectable statusEffectable))
+            IsDoneEffect();
             statusEffectable.RemoveStatusEffect(this);
             Destroy(this.gameObject);
         }
+    }
+    protected virtual void IsDoneEffect()
+    {
+        //effect when status effect is over
     }
 }
