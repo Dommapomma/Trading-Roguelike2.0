@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Summon Fire Orb Card
   cardDescription: Summons one fire orb
-  manaCost: -2
+  manaCost: -1
   card: {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}

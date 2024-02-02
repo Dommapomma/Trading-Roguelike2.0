@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2349369414616858677, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
       propertyPath: m_Name
-      value: pfSummonFireCubeCard
+      value: pfSummonFireOrbCard
       objectReference: {fileID: 0}
     - target: {fileID: 6821376397321041250, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
       propertyPath: card
@@ -113,7 +113,7 @@ MonoBehaviour:
   button: {fileID: 7956368579354055178}
   index: 0
   location: []
-  summonFireCubeSO: {fileID: 11400000, guid: b320ea5b0f7a0f54fb253f11ee8a3eda, type: 2}
+  summonFireOrbSO: {fileID: 11400000, guid: b320ea5b0f7a0f54fb253f11ee8a3eda, type: 2}
   orb: {fileID: 7321548712229781231, guid: 4def9c64964594207b9a4f47dc8a66a4, type: 3}
 --- !u!114 &7956368579354055178 stripped
 MonoBehaviour:

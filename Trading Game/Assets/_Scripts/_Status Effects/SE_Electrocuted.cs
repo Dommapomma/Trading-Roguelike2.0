@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SE_Electrocuted : _SE_Base
 {
+    //Electrocuted enemies have a 20% chance to fail their action for each stack
+    //Electrocuted players draw 1 less card for each stack
     bool used = false;
     public override void ApplyEffect()
     {
@@ -16,6 +18,7 @@ public class SE_Electrocuted : _SE_Base
         } else if (owner.TryGetComponent(out EnemyManager enemy))
         {
             enemy.AddMissChance(20);
+            used = true;
         }
         turns -= 1;
         IsDone();

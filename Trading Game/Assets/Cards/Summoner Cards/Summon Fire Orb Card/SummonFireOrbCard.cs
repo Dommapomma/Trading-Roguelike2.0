@@ -5,7 +5,7 @@ using UnityEngine;
 public class SummonFireOrbCard : BaseCard
     //fairly basic card for summoning a "more powerful cube". Costs 2 mana, creates a fire orb
 {
-    [SerializeField] CardSO summonFireCubeSO;
+    [SerializeField] CardSO summonFireOrbSO;
     [SerializeField] BaseOrb orb;
     public override void PlayCard() {
 
@@ -16,6 +16,6 @@ public class SummonFireOrbCard : BaseCard
 
 
     public override void SetUpCard() {
-        cardSO = summonFireCubeSO;
+        cardSO = summonFireOrbSO;
     }
 }

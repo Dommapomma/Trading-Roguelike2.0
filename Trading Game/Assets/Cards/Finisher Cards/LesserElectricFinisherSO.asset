@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0342534b8bb2475c93172288e7d6b96, type: 3}
-  m_Name: SummonDarkOrbCardSO
+  m_Name: LesserElectricFinisherSO
   m_EditorClassIdentifier: 
-  cardName: Summon Dark Orb
-  cardDescription: Summons one dark orb
-  manaCost: -2
-  card: {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
+  cardName: Lesser Electric Finisher
+  cardDescription: Requires 3 electric orbs
+  manaCost: -1
+  card: {fileID: 6013134722173234534, guid: fd4a2d5c9155bce48b323a1d4bacdc0e, type: 3}

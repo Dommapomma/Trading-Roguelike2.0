@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BaseFinsherCardSO
   m_EditorClassIdentifier: 
   cardName: Base Finisher
-  cardDescription: Requires 3 fire orbs
+  cardDescription: Requires 3 fire orbs (base)
   manaCost: -1
   card: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}

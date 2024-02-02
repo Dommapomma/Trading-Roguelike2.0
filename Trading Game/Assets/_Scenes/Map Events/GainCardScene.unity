@@ -1005,15 +1005,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleCards:
-  - card: {fileID: 6362473540434108989, guid: 69d6b3c15ce2c4f8e83ca8d1cb433cf0, type: 3}
-    probability: 1
   - card: {fileID: 1010025012352842989, guid: 25cc2345237ee6e49bbbdcd87cbfd118, type: 3}
-    probability: 1
+    probability: 2
   - card: {fileID: 7605843913661959427, guid: bf72f00945448e54b809f6c2151e7218, type: 3}
-    probability: 1
+    probability: 2
   - card: {fileID: 6259166357465331393, guid: f4f2b4658ec28f74ca45276053e1cf41, type: 3}
     probability: 1
   - card: {fileID: 552983087925303546, guid: 7186f541fe3fffb42b641e0dfae9a69b, type: 3}
+    probability: 1
+  - card: {fileID: 9045786622437502059, guid: beae8047b5422f34691d3ecbf1f1d5f1, type: 3}
+    probability: 1
+  - card: {fileID: 2672673613777392082, guid: 2d6547663d6015442bc9930b52c74214, type: 3}
+    probability: 1
+  - card: {fileID: 6013134722173234534, guid: fd4a2d5c9155bce48b323a1d4bacdc0e, type: 3}
+    probability: 1
+  - card: {fileID: 6013134722173234534, guid: 2fed164546f987b48871f029b6dacc3a, type: 3}
+    probability: 1
+  - card: {fileID: 6013134722173234534, guid: 3534c96127ee3d04b82d1cfa7d50d406, type: 3}
     probability: 1
   cardOptions: []
   card1Button: {fileID: 1371763390}

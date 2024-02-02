@@ -126,6 +126,7 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable, IMiss
         {
             //for each miss change, calculate if it misses
             if (UnityEngine.Random.Range(0, 101) < missChance){
+                print("Enemy Action Misses!");
                 return true;
             }
         }

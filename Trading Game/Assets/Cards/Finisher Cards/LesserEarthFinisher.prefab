@@ -54,16 +54,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7793278460080780438, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: m_Name
-      value: LesserVoidFinisher
+      value: LesserEarthFinisher
       objectReference: {fileID: 0}
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: bonusDamage
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: FinisherCardSO
       value: 
-      objectReference: {fileID: 11400000, guid: 50edd128c6c610a42b6195dd34de0929, type: 2}
+      objectReference: {fileID: 11400000, guid: d24dfb94b4504b64a88904e8e84e577a, type: 2}
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: BaseFinisherCardSO
       value: 
@@ -75,15 +75,15 @@ PrefabInstance:
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: requirements.Array.data[0]
       value: 
-      objectReference: {fileID: 6973462558349835141, guid: a1e58cee4a52a4530a98506583f5bf70, type: 3}
+      objectReference: {fileID: 3574864582686132705, guid: 5b084322f6c0a50469d64e87560d7e02, type: 3}
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: requirements.Array.data[1]
       value: 
-      objectReference: {fileID: 6973462558349835141, guid: a1e58cee4a52a4530a98506583f5bf70, type: 3}
+      objectReference: {fileID: 3574864582686132705, guid: 5b084322f6c0a50469d64e87560d7e02, type: 3}
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: requirements.Array.data[2]
       value: 
-      objectReference: {fileID: 6973462558349835141, guid: a1e58cee4a52a4530a98506583f5bf70, type: 3}
+      objectReference: {fileID: 3574864582686132705, guid: 5b084322f6c0a50469d64e87560d7e02, type: 3}
     - target: {fileID: 8946996396268211633, guid: 21b3be79df2db484a8edcc2f5fe0077c, type: 3}
       propertyPath: requirements.Array.data[3]
       value: 

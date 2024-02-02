@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LesserVoidFinisherSO
   m_EditorClassIdentifier: 
   cardName: Lesser Void Finisher
-  cardDescription: Requires 3 dark orbs and 1 fire orb
+  cardDescription: Requires 3 dark orbs
   manaCost: -1
-  card: {fileID: 7767868045498492094, guid: fd4a2d5c9155bce48b323a1d4bacdc0e, type: 3}
+  card: {fileID: 6013134722173234534, guid: fd4a2d5c9155bce48b323a1d4bacdc0e, type: 3}

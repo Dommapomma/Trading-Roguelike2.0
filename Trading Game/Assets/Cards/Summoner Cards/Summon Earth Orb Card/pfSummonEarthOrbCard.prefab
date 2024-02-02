@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7611948751441152694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 561155680239261884, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 561155680239261884, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryPlayCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 652357568628374332, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 959330250341294358, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 104.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349369414616858677, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: m_Name
+      value: pfSummonEarthOrbCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821376397321041250, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 9045786622437502059}
+    m_RemovedComponents:
+    - {fileID: 4345439419710504381, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2349369414616858677, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9045786622437502059}
+  m_SourcePrefab: {fileID: 100100000, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+--- !u!114 &3965831507233030100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6821376397321041250, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+  m_PrefabInstance: {fileID: 7611948751441152694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e104deefeb935ad438cba1fbebfd6277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5276441985744833155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2349369414616858677, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+  m_PrefabInstance: {fileID: 7611948751441152694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9045786622437502059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276441985744833155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39dc1fea7dc1504494d85d2f71fdf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visual: {fileID: 3965831507233030100}
+  button: {fileID: 7956368579354055178}
+  index: 0
+  location: []
+  summonEarthOrbSO: {fileID: 11400000, guid: 86c52360e2ea57f4eb4ca5b0c3e743bb, type: 2}
+  orb: {fileID: 3574864582686132705, guid: 5b084322f6c0a50469d64e87560d7e02, type: 3}
+--- !u!114 &7956368579354055178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 561155680239261884, guid: 507d67e3047c089429ba56f6b4ec3781, type: 3}
+  m_PrefabInstance: {fileID: 7611948751441152694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SE_Poisoned : _SE_Base
 {
+    //Poisoned entities take 1 damage per stack, per stack
     private int poisonDamage;
     public override void ApplyEffect(){
         poisonDamage = 0;

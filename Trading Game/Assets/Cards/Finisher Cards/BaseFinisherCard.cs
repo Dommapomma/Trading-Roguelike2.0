@@ -9,6 +9,9 @@ public class BaseFinisherCard : BaseCard
     [SerializeField] CardSO FinisherCardSO;
     [SerializeField] List<BaseOrb> requirements;
 
+    [SerializeField] private int bonusDamage;
+    [SerializeField] private int bonusHeal;
+    [SerializeField] private int bonusCards;
     public override bool IPersistant {  get { return true; } }
 
     public override void PlayCard()
@@ -31,6 +34,13 @@ public class BaseFinisherCard : BaseCard
     public virtual void FinisherBonus()
     {
         //extra bonus for playing finisher
+    }
+    public void DefaultFinisherBonus()
+    {
+        EnemyManager.Instance.Damage(bonusDamage);
+        Player.Instance.Heal(bonusHeal);
+        Player.Instance.DrawCards(bonusCards);
+        FinisherBonus();
     }
     public override bool IsPlayable()//used by player script
     {
