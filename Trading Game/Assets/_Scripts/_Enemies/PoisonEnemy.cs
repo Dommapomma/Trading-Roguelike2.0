@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PoisonEnemy : BaseEnemy
@@ -22,6 +23,11 @@ public class PoisonEnemy : BaseEnemy
     }
     private void Heal()
     {
+        if (EnemyManager.Instance.GetHealth() == EnemyManager.Instance.GetMaxHealth())
+        {
+            RandomAttack();
+            return;
+        }
         print("Heal");
         EnemyManager.Instance.Heal(healAmount);
     }

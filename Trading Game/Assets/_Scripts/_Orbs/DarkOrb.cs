@@ -6,12 +6,11 @@ using UnityEngine;
 
 public class DarkOrb : BaseOrb
 {
-    private void Start() {
+    public override void InitializeOrb() {
         damage = 15;
     }
     public override void PlayOrb(){
         print("dark attack!");
-        Inventory.Instance.RemoveOrbFromInventory(this);
         EnemyManager.Instance.Damage(damage);
         orbVisual.AttackVisual();
     }

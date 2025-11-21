@@ -9,7 +9,6 @@ public class ElectricOrb : BaseOrb
     public override void PlayOrb()
     {
         print("electric attack!");
-        Inventory.Instance.RemoveOrbFromInventory(this);
         EnemyManager.Instance.Damage(damage);
         SE_Electrocuted statusEffect = Instantiate(electrocutedEffect, EnemyManager.Instance.GetStatusEffectParent().gameObject.transform);
         statusEffect.gameObject.transform.position = EnemyManager.Instance.GetStatusEffectParent().transform.position;
@@ -17,5 +16,9 @@ public class ElectricOrb : BaseOrb
         statusEffect.SetOwner(EnemyManager.Instance.gameObject);
         EnemyManager.Instance.AddStatusEffect(statusEffect);
         orbVisual.AttackVisual();
+    }
+    public override void InitializeOrb()
+    {
+        damage = 7;
     }
 }

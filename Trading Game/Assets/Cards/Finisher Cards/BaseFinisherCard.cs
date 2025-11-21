@@ -6,13 +6,19 @@ using UnityEngine;
 
 public class BaseFinisherCard : BaseCard
 {
+    public BaseFinisherCard()
+    {
+        IFinisher = true;
+        IPersistant = true;
+    }
+
     [SerializeField] CardSO FinisherCardSO;
     [SerializeField] List<BaseOrb> requirements;
 
     [SerializeField] private int bonusDamage;
     [SerializeField] private int bonusHeal;
     [SerializeField] private int bonusCards;
-    public override bool IPersistant {  get { return true; } }
+    
 
     public override void PlayCard()
     {
@@ -25,6 +31,7 @@ public class BaseFinisherCard : BaseCard
                 if (orbToRemove.GetType() == targetType)
                 {
                     orbToRemove.PlayOrb();
+                    inventory.Remove(orbToRemove);
                     break;
                 }
             }
@@ -56,7 +63,6 @@ public class BaseFinisherCard : BaseCard
             }
             else
             {
-                print("found " + orb);
                 foreach (BaseOrb orbToRemove in inventory)
                 {
                     if (orbToRemove.GetType() == targetType) {

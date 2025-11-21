@@ -9,7 +9,6 @@ public class FireOrb : BaseOrb
     [SerializeField] private int effectLength;
     public override void PlayOrb(){
         print("fire attack!");
-        Inventory.Instance.RemoveOrbFromInventory(this);
         EnemyManager.Instance.Damage(damage);
         SE_OnFire statusEffect = Instantiate(fireEffect, EnemyManager.Instance.GetStatusEffectParent().gameObject.transform);
         statusEffect.gameObject.transform.position = EnemyManager.Instance.GetStatusEffectParent().transform.position;
@@ -17,5 +16,9 @@ public class FireOrb : BaseOrb
         statusEffect.SetOwner(EnemyManager.Instance.gameObject);
         EnemyManager.Instance.AddStatusEffect(statusEffect);
         orbVisual.AttackVisual();
+    }
+    public override void InitializeOrb()
+    {
+        damage = 7;
     }
 }

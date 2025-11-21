@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour, IDamageable, IStatusEffectable, IMiss
     [SerializeField] private float enemyTurnTimer = 3;
     private bool enemyTurn = false;
     public event EventHandler OnEnemyTurnOver;
-    private int health;
+    [SerializeField] private int health;
     private int maxHealth;
     private void Awake() {
         Instance = this;

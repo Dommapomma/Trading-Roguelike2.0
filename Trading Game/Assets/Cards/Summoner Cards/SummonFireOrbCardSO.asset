@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0342534b8bb2475c93172288e7d6b96, type: 3}
+  m_Name: SummonFireOrbCardSO
+  m_EditorClassIdentifier: 
+  cardName: Summon Fire Orb Card
+  cardDescription: Summons one fire orb
+  manaCost: -1
+  card: {fileID: 4421362804424371038, guid: a92a6e77f2fb0ff489e2e16b4d781fc0, type: 3}

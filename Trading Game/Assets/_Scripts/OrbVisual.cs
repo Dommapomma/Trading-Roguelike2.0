@@ -9,7 +9,7 @@ public class OrbVisual : MonoBehaviour
     public void AttackVisual(){
         Vector2 enemyPos = EnemyManager.Instance.GetEnemyVisual().transform.position;
         this.transform.DOMove(enemyPos, 1).SetEase(Ease.InSine).OnComplete(() => {
-            Destroy(this.gameObject);
+            Inventory.Instance.RemoveOrbFromInventory(this.GetComponentInParent<BaseOrb>());
         });
     }
 }

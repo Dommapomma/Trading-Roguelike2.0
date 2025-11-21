@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class EarthOrb : BaseOrb
 {
-    private void Start()
+    public override void InitializeOrb()
     {
-        damage = 15;
+        damage = 7;
     }
     //[SerializeField] private SE_ fireEffect;
     //[SerializeField] private int effectLength;
     public override void PlayOrb()
     {
         print("earth attack!");
-        Inventory.Instance.RemoveOrbFromInventory(this);
         EnemyManager.Instance.Damage(damage);
         /*SE_OnFire statusEffect = Instantiate(fireEffect, EnemyManager.Instance.GetStatusEffectParent().gameObject.transform);
         statusEffect.gameObject.transform.position = EnemyManager.Instance.GetStatusEffectParent().transform.position;

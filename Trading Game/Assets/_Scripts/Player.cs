@@ -37,6 +37,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable, IMissable
     [SerializeField] private List<int> missChances = new List<int>();
     public List<int> MissChances { get { return missChances; } }
 
+    [SerializeField] private MundaneOrb mundaneOrb;
     #endregion variables
 
     private void Awake(){
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable, IMissable
     {
         print("PlayerTurnStarting");
         ApplyStatusEffects();
+        Inventory.Instance.AddOrb(mundaneOrb);
         //Draws maxHandSize amount of cards
         DrawCards(drawHandSize);
         //regain mana
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable, IMissable
         int handLength = hand.Count;
         int persistants = 0;
         for (int x = 0; x < handLength; x ++) {
-            if (hand[0].IPersistant == false)
+            if (hand[0 + persistants].IPersistant == false)
             {
                 Discard(hand[0 + persistants]);
             }
@@ -114,6 +116,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable, IMissable
                 persistants += 1;   
             }
         }
+        print ($"there are {persistants} persistants");
         playerVisual.UpdateVisual();
     }
 
@@ -213,7 +216,7 @@ public class Player : MonoBehaviour, IDamageable, IStatusEffectable, IMissable
                     break;
                 }
             }
-            PlayerSave.savedStartingCards.Remove(card);
+            //i think error PlayerSave.savedStartingCards.Remove(card);
             hand.Remove(card);
             UpdateCards();
             UpdateHandVisual();

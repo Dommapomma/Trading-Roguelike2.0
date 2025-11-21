@@ -73,13 +73,13 @@ public class BaseCard : MonoBehaviour
     }
 
     #region Card Types
-    public virtual bool IFinisher { get; private set; } = false;
-    public virtual bool ISummoner { get; private set; } = false;
-    public virtual bool ITrader { get; private set; } = false;
-    public virtual bool IExhaustable { get; private set; } = false;
-    public virtual bool IIntuitive { get; private set; } = false;
-    public virtual bool IPersistant { get; private set; } = false;
-    public virtual bool IConsumable { get; private set; } = false;
+    public virtual bool IFinisher { get; protected set; } = false;
+    public virtual bool ISummoner { get; protected set; } = false;
+    public virtual bool ITrader { get; protected set; } = false;
+    public virtual bool IExhaustable { get; protected set; } = false;
+    public virtual bool IIntuitive { get; protected set; } = false;
+    public virtual bool IPersistant { get; protected set; } = false;
+    public virtual bool IConsumable { get; protected set; } = false;
     #endregion Card Types
 
 }

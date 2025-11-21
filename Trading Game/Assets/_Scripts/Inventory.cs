@@ -43,5 +43,6 @@ public class Inventory : MonoBehaviour
 
     public void RemoveOrbFromInventory(BaseOrb orb){
         inventory.Remove(orb);
+        Destroy(orb.gameObject);
     }
 }
